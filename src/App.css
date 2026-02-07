@@ -10,6 +10,25 @@
     gap: 2rem;
 }
 
+.hero,
+.subtitle,
+.stat,
+.add-form,
+.card,
+.theme-toggle,
+input,
+select,
+.card button,
+.empty,
+.primary,
+label,
+.meta,
+.stat-label,
+.stat-value,
+.eyebrow {
+    transition: background-color 260ms ease, color 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
+}
+
 .hero {
     display: flex;
     flex-direction: column;
