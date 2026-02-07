@@ -21,13 +21,35 @@
     letter-spacing: 0.2em;
     font-size: 0.75rem;
     font-weight: 700;
-    color: #f97316;
+    color: var(--accent);
 }
 
 .subtitle {
     max-width: 600px;
-    color: #475569;
+    color: var(--muted);
     margin: 0;
+}
+
+.hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.theme-toggle {
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent);
 }
 
 .stats {
@@ -39,14 +61,14 @@
 .stat {
     padding: 1rem 1.25rem;
     border-radius: 16px;
-    background: #fff7ed;
-    border: 1px solid #fed7aa;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
 }
 
 .stat-label {
     display: block;
     font-size: 0.8rem;
-    color: #9a3412;
+    color: var(--accent-dark);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 0.25rem;
@@ -55,7 +77,7 @@
 .stat-value {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #7c2d12;
+    color: var(--accent-dark);
 }
 
 .add-form {
@@ -65,9 +87,9 @@
     align-items: end;
     padding: 1.5rem;
     border-radius: 18px;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px var(--shadow);
 }
 
 .field {
@@ -79,24 +101,25 @@
 label {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #0f172a;
+    color: var(--text);
 }
 
 input,
 select {
     padding: 0.65rem 0.75rem;
     border-radius: 10px;
-    border: 1px solid #cbd5f5;
+    border: 1px solid var(--input-border);
     font-size: 0.95rem;
-    background: #f8fafc;
+    background: var(--surface-soft);
+    color: var(--text);
 }
 
 .primary {
     padding: 0.7rem 1.25rem;
     border-radius: 999px;
     border: none;
-    background: #0f172a;
-    color: #fff;
+    background: var(--text);
+    color: var(--surface);
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -120,8 +143,8 @@ select {
     gap: 1rem;
     padding: 1.25rem 1.5rem;
     border-radius: 16px;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
+    background: var(--surface);
+    border: 1px solid var(--border);
 }
 
 .card h2 {
@@ -131,7 +154,7 @@ select {
 
 .meta {
     margin: 0;
-    color: #64748b;
+    color: var(--muted);
 }
 
 .card-actions {
@@ -156,44 +179,45 @@ select {
 }
 
 .badge-towatch {
-    background: #dbeafe;
-    color: #1d4ed8;
+    background: var(--badge-blue-bg);
+    color: var(--badge-blue-text);
 }
 
 .badge-watching {
-    background: #fef9c3;
-    color: #b45309;
+    background: var(--badge-amber-bg);
+    color: var(--badge-amber-text);
 }
 
 .badge-watched {
-    background: #dcfce7;
-    color: #15803d;
+    background: var(--badge-green-bg);
+    color: var(--badge-green-text);
 }
 
 .card button {
     border-radius: 999px;
-    border: 1px solid #cbd5f5;
-    background: #f8fafc;
+    border: 1px solid var(--input-border);
+    background: var(--surface-soft);
     padding: 0.45rem 0.9rem;
     font-size: 0.85rem;
     cursor: pointer;
+    color: var(--text);
 }
 
 .card button:hover {
-    border-color: #94a3b8;
+    border-color: var(--muted);
 }
 
 .card button.ghost {
     background: transparent;
-    border-color: #e2e8f0;
-    color: #475569;
+    border-color: var(--border);
+    color: var(--muted);
 }
 
 .empty {
     padding: 2rem;
     border-radius: 16px;
-    background: #f8fafc;
-    color: #64748b;
+    background: var(--surface-soft);
+    color: var(--muted);
     text-align: center;
 }
 

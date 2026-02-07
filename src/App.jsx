@@ -36,6 +36,10 @@ export default function App() {
     const [title, setTitle] = useState("");
     const [platform, setPlatform] = useState("Netflix");
     const [status, setStatus] = useState("To Watch");
+    const [theme, setTheme] = useState(() => {
+        const stored = localStorage.getItem("tvTheme");
+        return stored === "dark" ? "dark" : "light";
+    });
 
     const stats = useMemo(() => {
         const total = shows.length;
@@ -48,6 +52,15 @@ export default function App() {
     useEffect(() => {
         localStorage.setItem("tvBookmarks", JSON.stringify(shows));
     }, [shows]);
+
+    useEffect(() => {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("tvTheme", theme);
+    }, [theme]);
+
+    function toggleTheme() {
+        setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    }
 
     function addShow(event) {
         event.preventDefault();
@@ -78,8 +91,15 @@ export default function App() {
     return (
         <div className="app">
             <header className="hero">
-                <p className="eyebrow">Tiny Bookmark Manager</p>
-                <h1>TV Show Bookmarks</h1>
+                <div className="hero-top">
+                    <div>
+                        <p className="eyebrow">Tiny Bookmark Manager</p>
+                        <h1>TV Show Bookmarks</h1>
+                    </div>
+                    <button className="theme-toggle" type="button" onClick={toggleTheme}>
+                        {theme === "dark" ? "Light Mode" : "Dark Mode"}
+                    </button>
+                </div>
                 <p className="subtitle">
                     Keep a lightweight list of what you want to watch next. Add shows, mark progress, and clean up when
                     you're done.
