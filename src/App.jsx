@@ -1,7 +1,7 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 
-const initialShows = [
+const defaultShows = [
     {
         id: 1,
         title: "The Expanse",
@@ -23,7 +23,16 @@ const initialShows = [
 ];
 
 export default function App() {
-    const [shows, setShows] = useState(initialShows);
+    const [shows, setShows] = useState(() => {
+        const stored = localStorage.getItem("tvBookmarks");
+        if (!stored) return defaultShows;
+        try {
+            const parsed = JSON.parse(stored);
+            return Array.isArray(parsed) ? parsed : defaultShows;
+        } catch {
+            return defaultShows;
+        }
+    });
     const [title, setTitle] = useState("");
     const [platform, setPlatform] = useState("Netflix");
     const [status, setStatus] = useState("To Watch");
@@ -34,6 +43,10 @@ export default function App() {
         const watching = shows.filter((show) => show.status === "Watching").length;
         const toWatch = total - watched - watching;
         return { total, watched, watching, toWatch };
+    }, [shows]);
+
+    useEffect(() => {
+        localStorage.setItem("tvBookmarks", JSON.stringify(shows));
     }, [shows]);
 
     function addShow(event) {
